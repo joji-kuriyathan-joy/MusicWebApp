@@ -1,0 +1,80 @@
+/* album */
+.album-view-container{
+    padding: 30px 60px;
+    margin:10px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 300px));
+    gap: 15px;
+    justify-content: center;
+}
+
+.album-icon{
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #808080;
+    
+}
+.album-name{
+    margin-bottom: .5em;
+}
+.artist-info img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border: 2px solid #808080;
+}
+
+.artist-info {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 50px));
+    gap:10px;
+    justify-content:flex-start;
+}
+.artist-info small{
+    margin-top: 10px;
+}
+
+/* track */
+.tracks-list{
+    background-color: #262626;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.track-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max-content,300px)); 
+    grid-auto-flow: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background-color: #2b2b2b;
+}
+
+.track-container:hover{
+    background-color: #5c5c5c;
+}
+
+.track-time-fav{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: end;
+}
+.track-count-name{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: start;
+}
+
+.track-count, .track-time, .artist-label{
+    color: #b3b3b3;
+}
+.track-fav,.artist-name{
+    color:#87FAFF;
+    cursor: pointer;
+}

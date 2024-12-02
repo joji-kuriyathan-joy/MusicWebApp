@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <script type="application/javascript" src="../js/app.js"></script>
 
 </head>
 
@@ -23,22 +24,110 @@
     <main>
         <section class="album-container">
             <h1>My Albums</h1>
-            <div class="cards">
-                <div class="card">
+            <section class="album-cards">
+                <!--:TODO clickable card using js with div id, construct id via loop-->
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
                     <div class="icon">
-                        <img src="../res/image_placeholder_1.jpg" />
-                        <div class="title">
-                            <p>Album Title</p>
-                            <small>Artist name</small>
-                        </div>
-
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
                     </div>
-                    <a href="#" class="count">4 open positions</a>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
+                </div>
+
+                <div class="card" id="_album_card" onclick="show_album_view('album_id')">
+                    <div class="icon">
+                        <img id="album_cover" src="../res/image_placeholder_1.jpg" alt="../res/image_placeholder.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p class="album-title" id="album_name">Album Name</p>
+                        <p class="artist-name" id="artist_name"><small>Artist Name</small></p>
+                    </div>
                 </div>
 
 
-
-            </div>
+            </section>
         </section>
     </main>
     <!-- footer -->
