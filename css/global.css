@@ -1,0 +1,27 @@
+/* @import url(https://fonts.googleapis.com/css?family=Audiowide); */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+Color Scheme: 
+
+Dark : #2b2b2b  --- For the body
+Light Dark : #b3b3b3 -- for cards and sections
+Light : #d4d4d4 -- for button / Heading
+very light : #ffffff  --- text 
+
+*/
+body {
+  background-color: #2b2b2b;
+  color:  #d4d4d4;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
