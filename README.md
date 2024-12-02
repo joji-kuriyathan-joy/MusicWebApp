@@ -24,7 +24,7 @@ Bootcamp with Layers Studio. Full Stack Development with PHP
   * album_id - int - FK
   * likes - int
   * language - varchar(100)
-  * play_counter - int // show top 10 Albums
+  * play_counter - int // show top 10 Songs
   * thumbnail varchar(100)
   * cover varchar(100)
 * ## User
