@@ -53,7 +53,7 @@ aside {
     float: right;
     color:#b3b3b3;
     justify-content: space-around;
-
+    width:30%;
     font-size: small;
   }
   
@@ -104,6 +104,7 @@ aside {
     flex-direction: row;
     background-color: #262626;
     border-radius: 8px;
+    transition: all 0.3s ease;
   }
   .card:hover{
     background-color: #5c5c5c;

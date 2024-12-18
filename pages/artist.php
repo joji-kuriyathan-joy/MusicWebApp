@@ -4,7 +4,8 @@ include_once('../ArtistModel.php');
 
 $_artistObj = new ArtistModel();
 $_artistData = $_artistObj->loadArtist();
-
+$breadcrumbObj = $_artistData['nav'];
+unset($_artistData['nav']);
 ?>
 
 
@@ -25,7 +26,22 @@ $_artistData = $_artistObj->loadArtist();
 
 <body>
     <header>
-
+    <div class="bd_container">
+            <ul class="breadcrumb">
+                <?php 
+                foreach($breadcrumbObj as $key => $info){
+                    echo'
+                    <li class="breadcrumb__item breadcrumb__item-firstChild" onclick="pageNav('.htmlspecialchars($breadcrumbObj[$key]['navUrl']).')">
+                        <span class="breadcrumb__inner">
+                            <span class="breadcrumb__title">'. htmlspecialchars($breadcrumbObj[$key]['breadcrumbName']).'</span>
+                        </span>
+                    </li>
+                    ';
+                }
+                ?>
+               
+            </ul>
+        </div>
     </header>
     <main>
         <section class="artist-container">

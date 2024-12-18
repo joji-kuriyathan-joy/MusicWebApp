@@ -6,3 +6,9 @@ function show_artist(artist_id){
     window.location.href = `./artist.php?id=${artist_id}`;
   }
      
+
+
+  
+function pageNav(url){
+  window.location.href = url;
+}

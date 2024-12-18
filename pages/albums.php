@@ -5,7 +5,8 @@ include_once('../AlbumsModel.php');
 
 $_albumsObj = new AlbumsModel();
 $_albumData = $_albumsObj->getAllAlbums();
-
+$breadcrumbObj = $_albumData['nav'];
+unset($_albumData['nav']);
 ?>
 
 
@@ -30,33 +31,49 @@ $_albumData = $_albumsObj->getAllAlbums();
         This section contains navigation information currently Logo(left) search and user information on the right 
         -->
     <header>
+        <div class="bd_container">
+            <ul class="breadcrumb">
+                <?php 
+                foreach($breadcrumbObj as $key => $info){
+                    echo'
+                    <li class="breadcrumb__item breadcrumb__item-firstChild" onclick="pageNav('.htmlspecialchars($breadcrumbObj[$key]['navUrl']).')">
+                        <span class="breadcrumb__inner">
+                            <span class="breadcrumb__title">'. htmlspecialchars($breadcrumbObj[$key]['breadcrumbName']).'</span>
+                        </span>
+                    </li>
+                    ';
+                }
+                ?>
+               
+            </ul>
+        </div>
 
     </header>
+
     <!-- main -->
     <main>
         <section class="album-container">
             <h1>My Albums</h1>
             <section class="album-cards">
 
-                    <?php
-                      if(!empty($_albumData)){
-                            foreach($_albumData as $_album){
-                                echo '<div class="card" id="_album_card" onclick="show_album_view(\''.htmlspecialchars($_album['albumId']). '\')">
+                <?php
+                if (!empty($_albumData)) {
+                    foreach ($_albumData as $_album) {
+                        echo '<div class="card" id="_album_card" onclick="show_album_view(\'' . htmlspecialchars($_album['albumId']) . '\')">
                                         <div class="icon">
-                                            <img id="album_cover" src="'.htmlspecialchars($_album['thumbnail']). '" alt="../res/image_placeholder.jpg">
+                                            <img id="album_cover" src="' . htmlspecialchars($_album['thumbnail']) . '" alt="../res/image_placeholder.jpg">
                                         </div>
                                         <div class="card-content">
-                                            <p class="album-title" id="album_name">'.htmlspecialchars($_album['albumName']). '</p>
-                                            <p class="artist-name" id="artist_name"><small>'.htmlspecialchars($_album['artistName']). '</small></p>
+                                            <p class="album-title" id="album_name">' . htmlspecialchars($_album['albumName']) . '</p>
+                                            <p class="artist-name" id="artist_name"><small>' . htmlspecialchars($_album['artistName']) . '</small></p>
                                         </div>
-                                    </div>';  
-                            }
-                      }
-                      else{
-                        echo '<p>No albums found.</p>';
-                      }
+                                    </div>';
+                    }
+                } else {
+                    echo '<p>No albums found.</p>';
+                }
 
-                    ?>  
+                ?>
 
             </section>
         </section>

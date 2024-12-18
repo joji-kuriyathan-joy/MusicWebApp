@@ -1,0 +1,141 @@
+.audio-conatiner{
+   display: grid;
+   grid-template-rows: repeat(auto-fit, minmax(max-content,1fr));
+   justify-content: center;
+   gap: 15px;
+   padding: 30px 60px;
+   margin:10px auto;
+}
+
+
+.image-container {
+    position: relative; /* Enable absolute positioning for child elements */
+    display: flex;
+    align-items: center; /* Vertically center the arrows with the image */
+    justify-content: center; /* Horizontally center the content */
+}
+
+
+.image-container .material-symbols-rounded {
+    position: absolute; /* Position the arrows relative to the container */
+    font-size: 24px; /* Adjust the size of the arrows */
+    cursor: pointer;
+    color: white;
+    z-index: 1;
+}
+
+.image-container .prev-arrow {
+    left: 0px; /* Adjust the distance of the left arrow from the image */
+}
+
+.image-container .next-arrow {
+    right: 0px; /* Adjust the distance of the right arrow from the image */
+}
+
+
+.image-container .material-symbols-rounded:hover{
+    color:#87FAFF;
+}
+
+.banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,auto));
+    grid-auto-rows: minmax(min-content, auto);
+    align-items: flex-start;
+    gap:10px;
+    text-align: center;
+}
+
+.banner img {
+    border: 1px solid #808080;
+    border-radius: 15px;
+    height:300px;
+    width: 300px;;
+    
+
+}
+
+.artist-info {
+    padding: 5px 5px ;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2b2b;
+    border-radius: 15px;
+    text-align: justify;
+    padding:10px;
+}
+
+.audio-control{
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: row;
+   
+    background-color: #2b2b2b;
+    border-radius: 15px;
+    align-items: center;
+}
+.track-slider{
+    border:2px solid white;
+    padding:2px;
+    margin:3px;
+    width:100%;
+    border-radius:5px;
+}
+
+.play-btn, .pause-btn{
+    width:fit-content;
+    padding:2px;
+    margin:3px;
+    cursor: pointer;
+    
+}
+.pause-btn{
+    display: none !important;
+}
+
+.palylist{
+    background-color: #262626;
+    border-radius: 15px;
+}
+.track-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max-content,300px)); 
+    grid-auto-flow: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background-color: #2b2b2b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.track-container:hover{
+    background-color: #5c5c5c;
+}
+/* .palylist [tabindex]:focus */
+.palylist [tabindex]:focus,
+.palylist [tabindex].active:focus{
+    border: 1px solid #87FAFF;
+}
+
+.track-time-fav{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: end;
+}
+.track-count-name{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: start;
+}
+
+.track-count, .track-time, .artist-label{
+    color: #b3b3b3;
+}
+.track-fav,.artist-name{
+    color:#87FAFF;
+    cursor: pointer;
+}

@@ -26,6 +26,7 @@
   grid-template-columns: repeat(auto-fit, minmax(max-content, 100px));
   border-radius: 8px;
   background-color: #262626;
+  transition: all 0.3s ease;
 }
 
 .card:hover {

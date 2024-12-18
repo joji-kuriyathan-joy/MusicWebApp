@@ -16,7 +16,7 @@ class ArtistModel
     public function loadArtist()
     {
         if (isset($_GET['id'])) {
-            $_artistId = $_GET['id'];
+            $_artistId = intval($_GET['id']);
         } else {
             // TODO: Show an alert that the artist details are not available or return back to the albums page 
             echo "Artist Not Found";
@@ -39,13 +39,22 @@ class ArtistModel
             $_stmt = $_conn->prepare($_query);
             $_stmt->execute();
             $_artistData = $_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (!empty($_artistData)) {
+                $_artistData["nav"] = array(
+                    ['breadcrumbName' => 'Albums', 'navUrl' => '`./albums.php`'],
+                    ['breadcrumbName' => $_artistData[0]['arName'], 'navUrl' => '`./artist.php?id=' . $_artistId . '`']
+                );
+            } else {
+                $_artistData["nav"] = array(['breadcrumbName' => 'Albums', 'navUrl' => '`./albums.php`']);
+            }
         } catch (Exception $e) {
             $_artistData = array();
             die("Error: " . $e->getMessage());
 
         }
 
-        $_db ->closeConnection();
+        $_db->closeConnection();
         return $_artistData;
 
 

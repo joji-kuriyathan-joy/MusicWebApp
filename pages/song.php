@@ -2,7 +2,8 @@
 include_once('../SongModel.php');
 $_songObj = new SongModel();
 $_songData = $_songObj->loadSongForAlbum();
-
+$breadcrumbObj = $_songData['nav'];
+unset($_songData['nav']);
 ?>
 
 
@@ -23,7 +24,22 @@ $_songData = $_songObj->loadSongForAlbum();
 
 <body>
     <header>
-
+    <div class="bd_container">
+            <ul class="breadcrumb">
+                <?php 
+                foreach($breadcrumbObj as $key => $info){
+                    echo'
+                    <li class="breadcrumb__item breadcrumb__item-firstChild" onclick="pageNav('.htmlspecialchars($breadcrumbObj[$key]['navUrl']).')">
+                        <span class="breadcrumb__inner">
+                            <span class="breadcrumb__title">'. htmlspecialchars($breadcrumbObj[$key]['breadcrumbName']).'</span>
+                        </span>
+                    </li>
+                    ';
+                }
+                ?>
+               
+            </ul>
+        </div>
     </header>
     <main>
         <section class="album-view-container">
@@ -31,9 +47,11 @@ $_songData = $_songObj->loadSongForAlbum();
             if (!empty($_songData)) {
                 $_albumName = $_songData[0]['alName'];
                 $_albumCover = $_songData[0]['alCover'];
+                $_albumId = $_songData[0]['alId'];
                 $_artistId = $_songData[0]['arId'];
                 $_artistName = $_songData[0]['arName'];
                 $_artistImg = $_songData[0]['arThumbnail'];
+                
                 
                 echo '<section class="album-info">
                 <img id="av_alvum_cover" class="album-icon" src=" ' . htmlspecialchars($_albumCover) . ' " alt="../res/image_placeholder.jpg">
@@ -43,7 +61,7 @@ $_songData = $_songObj->loadSongForAlbum();
                     </div>
                     
                     <small class="artist-label">Artist <br>
-                        <p class="artist-name" id="av_artist_name" onclick="show_artist(\''.htmlspecialchars($_artistId). '\')"> ' . htmlspecialchars($_artistName) . ' </p>
+                        <p class="artist-name" id="av_artist_name" title="Click to view artist info." onclick="show_artist(\''.htmlspecialchars($_artistId). '\')"> ' . htmlspecialchars($_artistName) . ' </p>
                     </small>
 
                 </div>
@@ -52,7 +70,11 @@ $_songData = $_songObj->loadSongForAlbum();
                 <h2 class="album-name">' . htmlspecialchars($_albumName) . '</h2>';
                 $_trackCount = 1;
                 foreach ($_songData as $_song) {
-                    echo '<div class="track-container">
+                    /*  each track-container onclick -> callAudioPlayer() : 
+                        pass the song ID as param
+                        $_song['sId'];
+                    */ 
+                    echo '<div class="track-container" id="track_'.htmlspecialchars($_trackCount).'" onclick="callAudioPlayer(\''.htmlspecialchars( $_song['sId']).'\',\''.htmlspecialchars($_albumId).'\')">
                             <div class="track-count-name">
                                 <span class="track-count" id="t_count">' . htmlspecialchars($_trackCount) . '</span>
                                 <span class="track-name" id="t_name">' . htmlspecialchars($_song['sName']) . '</span>
@@ -67,27 +89,20 @@ $_songData = $_songObj->loadSongForAlbum();
                 ?>
                 </section>
             <?php } else{
-                echo ' <p><strong>No tracks</strong></p>';
+                include '404.php';
             }
 
             ?>
 
-            <!-- <section class="tracks-list">
-                <h2 class="album-name">Top Pink Floyd - 2024</h2>
-                <div class="track-container">
-                    <div class="track-count-name">
-                        <span class="track-count" id="t_count">01</span>
-                        <span class="track-name" id="t_name">Wish You Were Here</span>
-                    </div>
-                    <div class="track-time-fav">
-                        <span class="track-fav material-symbols-rounded" id="t_fav"> favorite </span>
-                        <span class="track-time" id="t_time"> 03:30 </span>
-                    </div>
-                </div>
-                
-            </section> -->
         </section>
     </main>
 </body>
+
+<script>
+
+            function callAudioPlayer(songId, albumId){
+                window.location.href = `./audio_player.php?sId=${songId}&alId=${albumId}`;
+            }
+</script>
 
 </html>

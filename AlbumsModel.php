@@ -17,7 +17,8 @@ class AlbumsModel {
             $_stmt = $_conn->prepare($_query);
             $_stmt->execute();
             $_albumsList = $_stmt->fetchAll(PDO::FETCH_ASSOC);
-            
+            //bred crumb data
+            $_albumsList["nav"] = array(['breadcrumbName' =>'Albums', 'navUrl'=>'`./albums.php`']);
         }catch (Exception $e) {
             $_albumsList = array();
             die("Error: " . $e->getMessage());
